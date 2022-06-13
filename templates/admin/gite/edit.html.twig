@@ -1,0 +1,40 @@
+{% extends 'dashboard.html.twig' %}
+
+{% block title %}
+	Edition d'un gite
+{% endblock %}
+
+{% block body %}
+
+	<h1>Editer un gite</h1>
+
+	{{ form_start(formGite) }}
+	<div class="row">
+		<div class="col-md-6">
+			{{ form_row(formGite.nom) }}
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-4">
+			{{ form_row(formGite.surface) }}
+		</div>
+		<div class="col-md-4">
+			{{ form_row(formGite.chambre) }}
+		</div>
+		<div class="col-md-4">
+			{{ form_row(formGite.couchage) }}
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-6">
+			{{ form_row(formGite.description) }}
+		</div>
+	</div>
+
+	<div class="form_group">
+		<button type="submit" class="btn btn-primary">Enregistrer</button>
+        <button type="reset" class="btn btn-default">Annuler</button>
+	</div>
+
+	{{ form_end(formGite) }}
+{% endblock %}

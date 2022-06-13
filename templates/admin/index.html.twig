@@ -2,6 +2,12 @@
 
 {% block body %}
 	<h1>
+
+		{% for message in app.flashes('success') %}
+			<div class="alert alert-success">
+				{{ message }}
+			</div>
+		{% endfor %}
 		Gestion des gites</h1>
 
 	<div class="form-group">
@@ -26,8 +32,17 @@
 						{{ gite.nom }}
 					</td>
 					<td>
-						<button>Edit</button>
-						<button>Supprimer</button>
+						<div class="row">
+							<div class="col-1">
+								<a href="{{ path('admin_gite_edit', {id: gite.id}) }}" class="btn btn-primary">Edit</a>
+							</div>
+							<div class="col-1">
+								<form action=" {{ path('admin_gite_delete', {id: gite.id}) }}" method="post">
+									<input type="hidden" name="token" value="{{ csrf_token('gite_delete' ~ gite.id ) }}">
+									<input type="submit" value="Supprimer" class="btn btn-danger">
+								</form>
+							</div>
+						</div>
 					</td>
 				</tr>
 			{% endfor %}

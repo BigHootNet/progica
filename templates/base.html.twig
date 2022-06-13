@@ -21,23 +21,39 @@
 	<body>
 		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 			<div class="container-fluid">
-				<a class="navbar-brand" href="#">Navbar</a>
+				<a class="navbar-brand" href="#">Progica</a>
 				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
 				</button>
 				<div class="collapse navbar-collapse" id="navbarNavDropdown">
 					<ul class="navbar-nav">
 						<li class="nav-item">
-							<a class="nav-link {% if menu == 'home'%} active {% endif %}" aria-current="page" href="{{ path('home') }}">Home</a>
+							<a class="nav-link {% if menu is defined == 'home'%} active {% endif %}" aria-current="page" href="{{ path('home') }}">Home</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link {% if menu == 'contact'%} active {% endif %}" aria-current="page" href="{{ path('contact') }}">Contact</a>
+							<a class="nav-link {% if menu is defined == 'contact'%} active {% endif %}" aria-current="page" href="{{ path('contact') }}">Contact</a>
 						</li>
-						<li class="nav-item">
-							<a class="nav-link {% if menu is defined and menu == 'admin' %} active {% endif %}" aria-current="page" href="{{ path('admin_index') }}">Admin</a>
-						</li>
+						{% if is_granted("ROLE_ADMIN") %}
+							<li class="nav-item">
+								<a class="nav-link {% if menu is defined and menu == 'admin' %} active {% endif %}" aria-current="page" href="{{ path('admin_index') }}">Admin</a>
+							</li>
+						{% endif %}
 					</ul>
 				</div>
+				<div class="collapse navbar-collapse" id="navbarNavDropdown">
+					<ul class="navbar-nav">
+						{% if is_granted("IS_AUTHENTICATED_FULLY") %}
+							<li class="nav-item">
+								<a class="nav-link" href="{{ path('app_logout') }}">Logout</a>
+							</li>
+						{% else %}
+							<li class="nav-item">
+								<a class="nav-link" href="{{ path('app_login') }}">Login</a>
+							</li>
+						{% endif %}
+					</ul>
+				</div>
+
 			</div>
 		</nav>
 		<main class="container"> {% block body %}{% endblock %}
