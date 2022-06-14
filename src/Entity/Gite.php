@@ -59,7 +59,7 @@ class Gite
 
     /**
      * @ORM\Column(type="integer")
-     *      * @Assert\Range(
+     * @Assert\Range(
      * min=1,
      * max=100,
      * minMessage="La valeur minimum est de {{ min }} couchages",
