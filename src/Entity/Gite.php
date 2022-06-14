@@ -62,8 +62,8 @@ class Gite
      *      * @Assert\Range(
      * min=1,
      * max=100,
-     * minMessage="La valeur minimum est de {{ min }} chambre(s)",
-     * maxMessage="La valeur maximum est de {{ max }} chambres"
+     * minMessage="La valeur minimum est de {{ min }} couchages",
+     * maxMessage="La valeur maximum est de {{ max }} couchages"
      * )
      */
     private $couchage;
