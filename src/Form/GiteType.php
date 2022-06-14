@@ -22,7 +22,6 @@ class GiteType extends AbstractType
             ->add('equipements', EntityType::class, [
                 "class" => Equipement::class,
                 "choice_label" => "name",
-                "choice_value" => 'id',
                 "multiple" => true,
                 "expanded" => true,
             ])
