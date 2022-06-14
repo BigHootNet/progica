@@ -8,19 +8,42 @@
 	<h1>Index</h1>
 
 	<div class="row">
-            {% for gite in gites %}
-		<div class="col-md-4">
-			<div class="card" style="width:18rem;">
-				<div class="card-body">
-					<h5 class="card-title">{{ gite.nom }}</h5>
-					<p class="card-text">{{ gite.description }}</p>
-					<a href="{{ path('gite_show', {id: gite.id}) }}" class="btn btn-primary">
-						Voir le gite
-					</a>
+		{{ form_start(form) }}
+		<div class="card">
+			<div class="card-body">
+				<div class="row">
+					<div class="col-md-3">
+						{{ form_row(form.minSurface) }}
+					</div>
+					<div class="col-md-3">
+						{{ form_row(form.minChambre) }}
+					</div>
+					<div class="col-md-3">
+						{{ form_row(form.minCouchage) }}
+					</div>
+					<div class="col-md-3">
+						{{ form_row(form.submit) }}
+					</div>
 				</div>
 			</div>
 		</div>
-        {% endfor %}
+		{{ form_end(form) }}
+	</div>
+
+	<div class="row">
+		{% for gite in gites %}
+			<div class="col-md-4">
+				<div class="card" style="width:18rem;">
+					<div class="card-body">
+						<h5 class="card-title">{{ gite.nom }}</h5>
+						<p class="card-text">{{ gite.description }} <br>{{ gite.surface}} m²<br>{{ gite.chambre}} chambres<br> {{ gite.couchage }} couchages</p>
+						<a href="{{ path('gite_show', {id: gite.id}) }}" class="btn btn-primary">
+							Voir le gite
+						</a>
+					</div>
+				</div>
+			</div>
+		{% endfor %}
 	</div>
 
 {% endblock %}

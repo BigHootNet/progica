@@ -4,6 +4,8 @@ namespace App\Entity;
 
 use App\Repository\GiteRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+
 
 /**
  * @ORM\Entity(repositoryClass=GiteRepository::class)
@@ -24,21 +26,45 @@ class Gite
 
     /**
      * @ORM\Column(type="text")
+     * @Assert\Length(
+     * min=5,
+     * max=300,
+     * minMessage = "La description doit contenir un minimum de {{ min }} caractères",
+     * maxMessage = "La description doit contenir un maximum de {{ max }} caractères"
+     * )
      */
     private $description;
 
     /**
      * @ORM\Column(type="integer")
+     * @Assert\Range(
+     * min=15,
+     * max=3000,
+     * minMessage="La valeur minimum est de {{ min }} m²",
+     * maxMessage="La valeur maximum est de {{ max }} m²"
+     * )
      */
     private $surface;
 
     /**
      * @ORM\Column(type="integer")
+     * @Assert\Range(
+     * min=1,
+     * max=100,
+     * minMessage="La valeur minimum est de {{ min }} chambre(s)",
+     * maxMessage="La valeur maximum est de {{ max }} chambres"
+     * )
      */
     private $chambre;
 
     /**
      * @ORM\Column(type="integer")
+     *      * @Assert\Range(
+     * min=1,
+     * max=100,
+     * minMessage="La valeur minimum est de {{ min }} chambre(s)",
+     * maxMessage="La valeur maximum est de {{ max }} chambres"
+     * )
      */
     private $couchage;
 
