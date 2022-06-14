@@ -2,11 +2,24 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Validator\Constraints as Assert;
 
 class GiteSearch
 
 {
+
+    /**
+     * @var ArrayCollection
+     *
+     */
+    private $equipement;
+
+    public function __construct()
+    {
+        $this->equipement = new ArrayCollection();
+    }
+
     /**
      * @var int|null
      * @Assert\Range(
@@ -84,5 +97,25 @@ class GiteSearch
         $this->minCouchage = $minCouchage;
 
         return $this;
+    }
+
+    /**
+     * Get the value of equipement
+     * @return ArrayCollection
+     */ 
+    public function getEquipement(): ArrayCollection
+    {
+        return $this->equipement;
+    }
+
+    /**
+     * Set the value of equipement
+     *
+     * @param ArrayCollection $equipement
+     */ 
+    public function setEquipement(ArrayCollection $equipement): void
+    {
+        $this->equipement = $equipement;
+
     }
 }

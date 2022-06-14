@@ -1,3 +1,15 @@
+## Version 0.004
+
+### Major upgrade
+
+- Equipments options added
+- Equipments search added
+
+### Troubles encountered :
+
+- ArrayCollection is required in entity
+
+
 ## Version 0.003
 
 ### Major Upgrade

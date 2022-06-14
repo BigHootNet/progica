@@ -2,10 +2,14 @@
 
 namespace App\Form;
 
+use App\Entity\Equipement;
 use App\Entity\GiteSearch;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Symfony\Component\Form\ChoiceList\ChoiceList;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 
@@ -32,6 +36,14 @@ class GiteSearchType extends AbstractType
             ->add('submit', SubmitType::class, [
                 "label" => "Rechercher",
                 "attr" => ["class" => "btn-secondary"]
+            ])
+            ->add('equipement', EntityType::class, [
+                'required' => false,
+                'label' => false,
+                'class' => Equipement::class,
+                'choice_label' =>'name',
+                'multiple' => true,
+                "expanded" => true,
             ])
         ;
     }

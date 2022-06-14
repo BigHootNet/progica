@@ -63,6 +63,22 @@ class GiteRepository extends ServiceEntityRepository
             ->andWhere("g.couchage >= :minCouchage")
             ->setParameter('minCouchage', $search->getMinCouchage());       
         }
+
+        if($search->getMinCouchage()){
+            $query = $query
+            ->andWhere("g.couchage >= :minCouchage")
+            ->setParameter('minCouchage', $search->getMinCouchage());       
+        }
+        if($search->getEquipement()->count() > 0){
+            $k = 0;
+            foreach($search->getEquipement() as $k => $equipement) {
+                $k++;
+                $query = $query
+            ->andWhere(":equipement$k MEMBER OF g.equipements")
+            ->setParameter("equipement$k", $equipement);       
+            }
+        }
+
         $query = $query
             ->orderBy("g.id", "ASC")
             ->getQuery()
