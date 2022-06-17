@@ -37,8 +37,9 @@
 
 	<div class="row">
 		{% for gite in gites %}
-			<div class="col-md-4">
-				<div class="card" style="width:18rem;">
+			<div class="col-md-4 mt-3">
+				<div class="card">
+					<img src="{{ asset('img/fill1.jpg') }}" class="card-img-top" alt="">
 					<div class="card-body">
 						<h5 class="card-title">{{ gite.nom }}</h5>
 						<p class="card-text">{{ gite.description }} <br>{{ gite.surface}} m²<br>{{ gite.chambre}} chambres<br> {{ gite.couchage }} couchages</p>

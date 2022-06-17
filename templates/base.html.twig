@@ -31,7 +31,7 @@
 							<a class="nav-link {% if menu is defined == 'home'%} active {% endif %}" aria-current="page" href="{{ path('home') }}">Home</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link {% if menu is defined == 'contact'%} active {% endif %}" aria-current="page" href="{{ path('contact') }}">Contact</a>
+							<a class="nav-link {% if menu is defined == 'contact'%} active {% endif %}" aria-current="page" href="{{ path('home_contact') }}">Contact</a>
 						</li>
 						{% if is_granted("ROLE_ADMIN") %}
 							<li class="nav-item">
@@ -50,13 +50,16 @@
 							<li class="nav-item">
 								<a class="nav-link" href="{{ path('app_login') }}">Login</a>
 							</li>
+							<li>
+								<a class="nav-link" href="{{ path('app_register') }}">Register</a>
+							</li>
 						{% endif %}
 					</ul>
 				</div>
 
 			</div>
 		</nav>
-		<main class="container"> {% block body %}{% endblock %}
-			</main>
+		<div class="container"> {% block body %}{% endblock %}
+			</div>
 		</body>
 	</html>

@@ -1,0 +1,18 @@
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>Demande de contact</title>
+	</head>
+    <body>
+	<h1>Demande de contact</h1>
+	<h3>
+	Madame/Monsieur 
+	{{ contact.nom }}
+	a demandé des informations
+	</h3>
+
+	<p>{{ contact.message }}</p>
+	<p>Pour le contacter: {{ contact.email }} ou alors au : {{ contact.telephone }}</p>
+    </body>

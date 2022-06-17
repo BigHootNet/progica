@@ -75,6 +75,11 @@ class Gite
      */
     private $equipements;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="Gites")
+     */
+    private $user;
+
     public function __construct()
     {
         $this->equipements = new ArrayCollection();
@@ -165,6 +170,18 @@ class Gite
     public function removeEquipement(Equipement $equipement): self
     {
         $this->equipements->removeElement($equipement);
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): self
+    {
+        $this->user = $user;
 
         return $this;
     }
