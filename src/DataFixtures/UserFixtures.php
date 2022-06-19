@@ -22,7 +22,14 @@ class UserFixtures extends Fixture
         $admin
             ->setUsername("admin")
             ->setPassword($this->hasher->hashpassword($admin, "admin"))
-            ->setRoles(["ROLE_ADMIN"]);
+            ->setRoles(["ROLE_ADMIN"])
+            ->setEmail('admin@deouf.com')
+            ->setSurname('admin')
+            ->setlastName('nimda')
+            ->setPhone('0606060606')
+            ->setAddress('la rue d\'ici')
+            ->setZipcode('89200')
+            ->setCity('Avallon City Beach');
         $manager->persist($admin);
         $manager->flush();
 
@@ -30,7 +37,14 @@ class UserFixtures extends Fixture
         $user
             ->setUsername("john")
             ->setPassword($this->hasher->hashpassword($user, "doe"))
-            ->setRoles(["ROLE_USER"]);
+            ->setRoles(["ROLE_USER"])
+            ->setEmail('john@doe.com')
+            ->setSurname('John')
+            ->setlastName('Doe')
+            ->setPhone('0666000000')
+            ->setAddress('9 place de Judas')
+            ->setZipcode('666')
+            ->setCity('HellOnEarth');
         $manager->persist($user);
         $manager->flush();
     }

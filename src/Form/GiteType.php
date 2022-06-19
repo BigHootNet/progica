@@ -3,10 +3,12 @@
 namespace App\Form;
 
 use App\Entity\Gite;
+use App\Entity\User;
 use App\Entity\Equipement;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Symfony\Component\Form\ChoiceList\ChoiceList;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class GiteType extends AbstractType
@@ -23,6 +25,12 @@ class GiteType extends AbstractType
                 "class" => Equipement::class,
                 "choice_label" => "name",
                 "multiple" => true,
+            ])
+            ->add('user', EntityType::class, [
+                "class" => User::class,
+                "choice_label" => "username",
+                "multiple" => false,
+                'choice_value' => ChoiceList::value($this, 'id')
             ])
         ;
     }

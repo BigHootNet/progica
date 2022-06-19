@@ -1,0 +1,27 @@
+{% extends "base.html.twig" %}
+{% block title %} Modifiez votre profile :  {% endblock %}
+{% block body %}
+
+{% for message in app.flashes('success') %}
+    <div class="alert alert-success">
+    {{ message }}
+    </div>
+{% endfor %}
+    <h1>Modifiez votre profil :  </h1>
+    <div class="row">
+        <div class="col-md-6">
+            {{ form_start(form) }}
+                {{ form_row (form.username )}}
+                {{ form_row (form.surname )}}
+                {{ form_row (form.lastName )}}
+                {{ form_row (form.email )}}
+                {{ form_row (form.phone )}}
+                {{ form_row (form.address )}}
+                {{ form_row (form.zipcode )}}
+                {{ form_row (form.city )}}
+            
+                <input type="submit" class="btn btn-success" value="Envoyer">
+            {{ form_end(form) }}
+        </div>
+    </div>
+{% endblock %}

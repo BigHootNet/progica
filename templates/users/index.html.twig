@@ -1,0 +1,144 @@
+{% extends 'base.html.twig' %}
+
+{% block body %} <h1> Bonjour {{ app.user.username }} </h1>
+
+	<table class="table table-striped">
+
+		<tbody>
+				<tr>
+					<td class="col-2">
+						Votre nom : 
+					</td>
+					<td class="col-2">
+						{{ app.user.lastname }}
+					</td>
+					<td>
+						<div class="row">
+							<div class="col-1">
+							</div>
+							<div class="col-1">
+							</div>
+						</div>
+					</td>
+				</tr>
+                	<td class="col-2">
+						Votre prénom : 
+					</td>
+					<td class="col-2">
+						{{ app.user.surname }}
+					</td>
+					<td>
+						<div class="row">
+							<div class="col-1">
+							</div>
+							<div class="col-1">
+							</div>
+						</div>
+					</td>
+				</tr>
+                	<td class="col-2">
+						Votre email : 
+					</td>
+					<td class="col-2">
+						{{ app.user.email }}
+					</td>
+					<td>
+						<div class="row">
+							<div class="col-1">
+							</div>
+							<div class="col-1">
+							</div>
+						</div>
+					</td>
+				</tr>
+                	<td class="col-2">
+						Votre n° de téléphone : 
+					</td>
+					<td class="col-2">
+						{{ app.user.phone }}
+					</td>
+					<td>
+						<div class="row">
+							<div class="col-1">
+							</div>
+							<div class="col-1">
+							</div>
+						</div>
+					</td>
+				</tr>
+                	<td class="col-2">
+						Votre ville : 
+					</td>
+					<td class="col-2">
+						{{ app.user.city }}
+					</td>
+					<td>
+						<div class="row">
+							<div class="col-1">
+							</div>
+							<div class="col-1">
+							</div>
+						</div>
+					</td>
+				</tr>
+                	<td class="col-2">
+						Votre adresse : 
+					</td>
+					<td class="col-2">
+						{{ app.user.address }}
+					</td>
+					<td>
+						<div class="row">
+							<div class="col-1">
+							</div>
+							<div class="col-1">
+							</div>
+						</div>
+					</td>
+				</tr>
+                	<td class="col-2">
+                                    
+						Votre code postal: 
+					</td>
+					<td class="col-2">
+						{{ app.user.zipcode }}
+					</td>
+					<td>
+						<div class="row">
+							<div class="col-1">
+							</div>
+							<div class="col-1">
+							</div>
+						</div>
+					</td>
+				</tr>
+                
+
+		</tbody>
+	</table>
+    <a href=" {{ path('user_profile') }} " class="btn btn-primary"> modifier le profil </a>
+    <a href="{{ path('user_edit_password') }}" class="btn btn-warning"> modifier le mot de passe<a/>
+
+    <h1> Vos gites : </h1>
+
+    <table class="table"> 
+        <thead>
+            <td>Gites :   </td>      
+            <td>Actions : </td>
+        </thead>
+        <tbody>
+             {% for gite in app.user.gites %}
+        <tr>
+            <td> {{ gite.nom }} </td>
+						<td>
+				<a href=" {{ path('gite_show', {id: gite.id}) }} " class="btn btn-primary"> voir le gite </a>
+			</td>
+        </tr>
+             {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}
+
+
+

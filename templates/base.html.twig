@@ -43,6 +43,9 @@
 				<div class="collapse navbar-collapse" id="navbarNavDropdown">
 					<ul class="navbar-nav">
 						{% if is_granted("IS_AUTHENTICATED_FULLY") %}
+													<li>
+								<a class="nav-link" href="{{ path('app_users') }}">Votre Profil</a>
+							</li>
 							<li class="nav-item">
 								<a class="nav-link" href="{{ path('app_logout') }}">Logout</a>
 							</li>

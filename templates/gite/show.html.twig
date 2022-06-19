@@ -36,7 +36,7 @@
 			</tr>
 		</table>
 		<div class="col-md-6">
-		<h2>Equipement(s)</h2>
+			<h2>Equipement(s)</h2>
 			<table class="table">
 				{% for equipement in gite.equipements %}
 					<tr>
@@ -46,6 +46,38 @@
 					</tr>
 
 				{% endfor %}
+			</table>
+		</div>
+		<div class="col-md-6">
+			<h2>Coordonnées propriétaires</h2>
+			<table class="table">
+				<tr>
+					<th>
+						Nom :
+					</th>
+					<td>
+					{% if gite.user.surname is defined %}
+						{{ gite.user.surname }} {{ gite.user.lastname }}
+						{% endif %}
+					</td>
+				</tr>
+				<tr>
+					<th>Téléphone :
+					</th>
+					<td>
+					{% if gite.user.phone is defined %}
+						{{ gite.user.phone }}
+						{% endif %}
+					</td>
+				</tr>
+				<tr>
+					<th> Email :
+					</th>
+					<td>
+					{% if gite.user.email is defined %}
+						{{ gite.user.email }}
+						{% endif %}
+					</td>
 			</table>
 		</div>
 

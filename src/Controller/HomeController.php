@@ -2,10 +2,12 @@
 namespace App\Controller;
 
 use App\Entity\Gite;
+use App\Entity\User;
+use App\Form\UserType;
 use App\Entity\Contact;
+
 use App\Form\ContactType;
 use App\Entity\GiteSearch;
-
 use App\Form\GiteSearchType;
 use App\Notification\ContactNotification;
 use Doctrine\Persistence\ManagerRegistry;
@@ -68,5 +70,4 @@ class HomeController extends AbstractController {
             "form" => $form->createView()
     ]);
     }
-
 }
